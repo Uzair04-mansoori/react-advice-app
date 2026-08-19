@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+#root {
+  width: 100%;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+@keyframes floatGlow {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chip {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: #B9B4D0;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all .18s;
+}
+
+.chip:hover {
+  border-color: #6C5CE7;
+  color: #EDEAF6;
+}
+
+.chip.active {
+  background: linear-gradient(135deg,#6C5CE7,#8E7CFF);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 4px 18px rgba(108,92,231,.4);
+}
+
+.dial-node {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #EDEAF6;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .18s, border-color .18s, background .18s;
+  backdrop-filter: blur(6px);
+}
+
+.dial-node:hover {
+  transform: scale(1.12);
+  border-color: #FFD166;
+}
+
+.dial-node.active {
+  background: linear-gradient(135deg,#FFD166,#FF7F6B);
+  border-color: transparent;
+  color: #12101C;
+  transform: scale(1.15);
+}
+
+.flip-scene {
+  perspective: 1200px;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .7s cubic-bezier(.2,.9,.25,1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.ring-pulse {
+  animation: floatGlow 3s ease-in-out infinite;
+}
